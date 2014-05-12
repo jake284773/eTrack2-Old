@@ -1,0 +1,38 @@
+/*
+ * This file is part of the eTrack web application.
+ *
+ * (c) City College Plymouth
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+ul.process-steps {
+    font-size: 1em;
+    margin-bottom: 1em;
+
+    li.disabled, li.active {
+        pointer-events: none;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        li a {
+            .pull-left;
+        }
+
+        li span.glyphicon-chevron-right {
+            padding: 10px;
+            .pull-right;
+        }
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .nav-justified > li {
+        width: auto !important;
+    }
+}
+
+.nav-justified {
+    width: auto !important;
+}

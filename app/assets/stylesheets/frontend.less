@@ -1,0 +1,66 @@
+/*
+ * This file is part of the eTrack web application.
+ *
+ * (c) City College Plymouth
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+// Import the bootstrap components
+@import "base.less";
+
+// Import the Chosen jQuery Plugin styling
+@import "chosen.less";
+
+// Modifications to bootstrap
+@import "core.less";
+
+// Process steps styling
+@import "process-steps.less";
+
+// Assessment Tables
+@import "assessment-tables.less";
+
+#login-box {
+  margin-top: 40px;
+}
+
+.table-alert {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.table-lower {
+  margin-top: 5em;
+}
+
+@media (max-width: @screen-xs-max) {
+  .btn {
+    margin-bottom: 10px;
+  }
+}
+
+#table-buttons {
+  margin-bottom: 10px;
+}
+
+@media (max-width: @screen-sm-max) {
+  #table-buttons {
+    .pull-left;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  #table-buttons {
+    .pull-right;
+  }
+}
+
+#search-group {
+  padding: 0 5px 0 0;
+}
+
+.top-breadcrumb {
+  margin-top: 30px;
+}

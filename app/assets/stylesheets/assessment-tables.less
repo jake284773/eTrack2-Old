@@ -1,0 +1,55 @@
+/*
+ * This file is part of the eTrack web application.
+ *
+ * (c) City College Plymouth
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.unit-criteria-table {
+    th, td {
+        text-align: center;
+    }
+
+    th:nth-child(1), td:nth-child(1) {
+        border-right: 2px solid #ddd;
+    }
+
+    th:last-child, td:last-child {
+        border-left: 2px solid #ddd;
+    }
+
+    td.criteria-achieved {
+        background: @brand-success !important;
+        color: @brand-success;
+    }
+
+    td.criteria-nya {
+        background: @brand-danger !important;
+    }
+
+    td.criteria-awaitmark {
+        background: @brand-warning !important;
+    }
+
+    td.criteria-ref {
+        background: @brand-primary !important;
+    }
+
+    td.grade-distinction {
+        background: #369836 !important;
+    }
+
+    td.grade-merit {
+        background: #5cb85c !important;
+    }
+
+    td.grade-pass {
+        background: #8ad38a !important;
+    }
+
+    td.grade-nya {
+        background: @brand-danger !important;
+    }
+}
