@@ -42,7 +42,7 @@
             <tbody>
                 @foreach ($faculties as $faculty)
                     <tr>
-                        <td><input type="checkbox" name="faculty[]" value="{{{ $faculty->code }}}"></td>
+                        <td><input type="checkbox" class="record" name="record[]" value="{{{ $faculty->code }}}"></td>
                         <td><a href="{{ route('faculty.show', $faculty->code) }}">{{{ $faculty->code }}}</a></td>
                         <td><a href="{{ route('faculty.show', $faculty->code) }}">{{{ $faculty->name }}}</a></td>
                         <td>

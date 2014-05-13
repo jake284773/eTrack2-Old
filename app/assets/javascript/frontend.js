@@ -32,3 +32,11 @@ $("ul.navbar-nav a").filter(function () {
 $('body').on('hidden.bs.modal', '.modal', function () {
     $(this).removeData('bs.modal');
 });
+
+$('.record:checkbox').change(function() {
+    if ($(this).is(':checked')){
+        $(this).parent().parent().addClass('warning');
+    } else {
+        $(this).parent().parent().removeClass('warning');
+    }
+})
