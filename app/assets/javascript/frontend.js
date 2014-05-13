@@ -101,7 +101,7 @@ $("#batch_action").on('change', function() {
   .done(function(data) {
     $("#batch_action option").prop("selected", false);
     $('#batch_action').trigger("chosen:updated");
-    
+
     $('.modal-content').html(data);
     $('#modal-window').modal();
   })
@@ -110,3 +110,10 @@ $("#batch_action").on('change', function() {
   });
 });
 
+$('.record:checkbox').change(function() {
+    if ($(this).is(':checked')){
+        $(this).parent().parent().addClass('warning');
+    } else {
+        $(this).parent().parent().removeClass('warning');
+    }
+})
