@@ -84,26 +84,6 @@ Event::listen('auth.login', function($user)
 });
 
 /*
- |--------------------------------------------------------------------------
- | Response Macros
- |--------------------------------------------------------------------------
- |
- */
-
-Response::macro('xml', function($data = array(), $status = 200, array $headers = array())
-{
-    if ($data instanceof ArrayableInterface)
-    {
-        $data = $data->toArray();
-    }
-
-    $serializer = JMS\Serializer\SerializerBuilder::create()->build();
-    $xmlContent = $serializer->serialize($data, 'xml');
-
-    return Response::make($xmlContent, $status, $headers);
-});
-
-/*
 |--------------------------------------------------------------------------
 | Require The Filters File
 |--------------------------------------------------------------------------

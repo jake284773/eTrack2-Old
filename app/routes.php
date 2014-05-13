@@ -31,6 +31,7 @@ Route::group(array('namespace' => 'eTrack\Controllers'), function()
     Route::resource('session', 'SessionController', array('only' => array('create', 'store', 'destroy')));
 
     Route::resource('faculty', 'FacultyController');
+    Route::post('faculty/batch_action', array('uses' => 'FacultyController@batchAction', 'as' => 'faculty.batchAction'));
     Route::resource('faculty.courses', 'FacultyCourseController');
     Route::resource('course', 'CourseController');
 });
