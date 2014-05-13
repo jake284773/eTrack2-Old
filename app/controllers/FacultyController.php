@@ -112,17 +112,25 @@ class FacultyController extends BaseController {
                 App::abort(500);
         }
     }
-    
+
     private function batchDelete()
     {
         $selectedRecords = Input::get('record');
-        
+
         if (! Input::get('confirmation'))
         {
             $faculties = Faculty::whereIn('code', $selectedRecords)->get();
-            return View::make('faculty.delete', array('faculties' => $faculties));
+
+            if (count($faculties) == 1) {
+                $facultySpelling = "faculty";
+            } else {
+                $facultySpelling = "faculties";
+            }
+
+            return View::make('faculty.delete',array('faculties' => $faculties,
+                                                     'facultySpelling' => $facultySpelling));
         }
-        
+
         try {
             Faculty::whereIn('code', $selectedRecords)->delete();
             return Redirect::back()->with('message', 'Deleted faculties successfully');

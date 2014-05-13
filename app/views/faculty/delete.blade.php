@@ -1,9 +1,9 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete these faculties?</h4>
+    <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete {{{ $facultySpelling == 'faculty' ? 'this faculty' : 'these faculties' }}}?</h4>
 </div>
 <div class="modal-body">
-    <h4>First check you have the correct faculties:</h4>
+    <h4>First check you have the correct {{{ $facultySpelling }}}:</h4>
     <table class="table">
         <thead>
             <tr>
