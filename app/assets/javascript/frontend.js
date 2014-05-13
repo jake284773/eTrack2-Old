@@ -109,11 +109,3 @@ $("#batch_action").on('change', function() {
     alert('There was a problem with processing your request.');
   });
 });
-
-$('.record:checkbox').change(function() {
-    if ($(this).is(':checked')){
-        $(this).parent().parent().addClass('warning');
-    } else {
-        $(this).parent().parent().removeClass('warning');
-    }
-})
