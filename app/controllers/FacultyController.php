@@ -4,8 +4,11 @@ namespace eTrack\Controllers;
 
 use eTrack\Models\Faculty;
 use Response;
+use Redirect;
 use View;
 use Input;
+use App;
+
 
 class FacultyController extends BaseController {
 
@@ -100,7 +103,7 @@ class FacultyController extends BaseController {
 	{
 		//
 	}
-    
+
     public function batchAction()
     {
         switch (Input::get('batch_action'))
@@ -133,7 +136,7 @@ class FacultyController extends BaseController {
 
         try {
             Faculty::whereIn('code', $selectedRecords)->delete();
-            return Redirect::back()->with('message', 'Deleted faculties successfully');
+            return Redirect::back()->with('message', 'Deleted '.$facultySpelling.' successfully');
         } catch (\Exception $ex) {
             return Redirect::back()->with('error', 'Unable to delete selected faculties');
         }

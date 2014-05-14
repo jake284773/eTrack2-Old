@@ -14,6 +14,14 @@ module.exports = function (grunt) {
     less: {
       default: {
         options: {
+          compress: false
+        },
+        files: {
+          'public/assets/stylesheets/frontend.css': 'app/assets/stylesheets/frontend.less'
+        }
+      },
+      production: {
+        options: {
           compress: true
         },
         files: {
@@ -127,7 +135,15 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Task definition
-  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('default', [
+    'copy:glyphicons',
+    'copy:images',
+    'concat:js_frontend',
+    'concat:js_ie',
+    'less:default',
+    'watch'
+  ]);
+
   grunt.registerTask('build', [
     'copy:glyphicons',
     'copy:images',
@@ -135,6 +151,6 @@ module.exports = function (grunt) {
     'uglify:frontend',
     'concat:js_ie',
     'uglify:ie',
-    'less:default'
+    'less:production'
   ]);
 };

@@ -16,7 +16,8 @@
 </div>
 <div class="row">
     <form method="post" id="batch_action_form" action="{{ route('faculty.batchAction') }}">
-    <div id="batch_actions" class="col-md-4 col-md-offset-2 hidden">
+    <input type="hidden" id="confirmation" name="confirmation">
+    <div id="batch_actions" class="col-md-4 col-md-offset-2">
         <label for="batch_action">With selected:</label>
         <select id="batch_action" class="chosen-select" style="width:150px" name="batch_action" data-placeholder="Please select...">
             <option></option>

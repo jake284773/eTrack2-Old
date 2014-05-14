@@ -52,6 +52,8 @@ $('body').on('hidden.bs.modal', '.modal', function () {
   $(this).removeData('bs.modal');
 });
 
+$('#batch_actions').hide();
+
 // When the user clicks on the top checkbox in the record table, select all the
 // rows. Also fade in/out the "with selected" dropdown box.
 $('.record-all').on('click', function() {
@@ -99,13 +101,15 @@ $("#batch_action").on('change', function() {
     data: $(this).closest('form').serialize()
   })
   .done(function(data) {
-    $("#batch_action option").prop("selected", false);
-    $('#batch_action').trigger("chosen:updated");
-
     $('.modal-content').html(data);
     $('#modal-window').modal();
   })
   .fail(function() {
     alert('There was a problem with processing your request.');
   });
+});
+
+$('#modal-window').on('hidden.bs.modal', function () {
+  $("#batch_action option").prop("selected", false);
+  $('#batch_action').trigger("chosen:updated");
 });

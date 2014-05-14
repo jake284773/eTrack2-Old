@@ -23,6 +23,14 @@
     </table>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-danger">Yes</button>
+    <button type="button" id="btn-batch-confirm" class="btn btn-danger">Yes</button>
     <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
 </div>
+<script>
+  $('#btn-batch-confirm').click(function() {
+  $('#confirmation').val('true');
+  console.log('User clicked on yes.');
+
+  $('#batch_action_form').submit();
+});
+</script>
