@@ -29,6 +29,8 @@ class CreateStudentAssignmentTable extends Migration {
             $table->dateTime('submission_date')->nullable();
             $table->timestamps();
 
+            $table->unique('assignment_id', 'student_user_id');
+
             $table->foreign('assignment_id')
                 ->references('id')
                 ->on('assignment');

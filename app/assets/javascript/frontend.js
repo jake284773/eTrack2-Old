@@ -41,7 +41,7 @@ var url = window.location;
 $('ul.navbar-nav a[href=":contains(' + url + ')"]').parent().addClass('active');
 
 // Will also work for relative and absolute hrefs
-$("ul.navbar-nav a").filter(function () {
+$('ul.navbar-nav a').filter(function () {
   return this.href == url;
 }).parent().addClass('active');
 
@@ -60,11 +60,11 @@ $('.record-all').on('click', function() {
   $(this).closest('table').find('.record:checkbox').prop('checked',
                                                          this.checked);
 
-  if ($(".record:checkbox").is(":checked")) {
+  if ($('.record:checkbox').is(":checked")) {
     $(".record:checkbox").parent().parent().addClass("danger");
     $('#batch_actions').fadeIn();
   } else {
-    $(".record:checkbox").parent().parent().removeClass("danger");
+    $('.record:checkbox').parent().parent().removeClass("danger");
     $('#batch_actions').fadeOut();
   }
 });
@@ -79,14 +79,14 @@ $('.record').on('click', function() {
 
   // If all rows are checked, also tick the top checkbox (for all).
   // Otherwise untick it
-  if ($(".record").length == $(".record:checked").length) {
+  if ($(".record").length == $('.record:checked').length) {
     $('.record-all').prop('checked', true);
   } else {
     $('.record-all').prop('checked', false);
   }
 
   // When at least row checkbox is ticked show the "with selected" dropdown box.
-  if ($(".record:checkbox").is(":checked")) {
+  if ($('.record:checkbox').is(":checked")) {
     $('#batch_actions').fadeIn();
   } else {
     $('#batch_actions').fadeOut();
@@ -110,6 +110,6 @@ $("#batch_action").on('change', function() {
 });
 
 $('#modal-window').on('hidden.bs.modal', function () {
-  $("#batch_action option").prop("selected", false);
+  $("#batch_action").find("option").prop("selected", false);
   $('#batch_action').trigger("chosen:updated");
 });

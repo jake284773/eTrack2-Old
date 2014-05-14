@@ -29,6 +29,8 @@ class CreateCriteriaTable extends Migration {
             $table->unsignedInteger('unit_id');
             $table->timestamps();
 
+            $table->unique('code', 'unit_id');
+
             $table->foreign('unit_id')
                 ->references('id')
                 ->on('unit');

@@ -16,7 +16,7 @@ use Eloquent;
 /**
  * Faculty model
  *
- * @property string $id
+ * @property string $code
  * @property string $name
  * @property-read \Illuminate\Database\Eloquent\Collection|Course[] $courses
  *

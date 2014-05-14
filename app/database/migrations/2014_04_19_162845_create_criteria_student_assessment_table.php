@@ -30,6 +30,9 @@ class CreateCriteriaStudentAssessmentTable extends Migration {
             $table->string('assessment_status', 3);
             $table->timestamps();
 
+            $table->unique(array('student_assignment_id', 'criteria_id'),
+                'criteria_student_assessment_unique');
+
             $table->foreign('student_assignment_id',
                 'criteria_student_assignment_foreign')
                 ->references('id')

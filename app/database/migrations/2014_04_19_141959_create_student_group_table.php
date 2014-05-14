@@ -23,7 +23,7 @@ class CreateStudentGroupTable extends Migration {
     {
         Schema::create('student_group', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('code', 15);
+            $table->string('code', 15)->unique();
             $table->unsignedInteger('course_id');
             $table->unsignedInteger('tutor_user_id');
             $table->timestamps();

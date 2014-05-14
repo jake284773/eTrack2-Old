@@ -33,6 +33,8 @@ class CreateCourseStudentTable extends Migration {
             $table->integer('predicted_ucas_tariff_score')->nullable();
             $table->timestamps();
 
+            $table->unique('course_id', 'student_user_id');
+
             $table->foreign('course_id')
                 ->references('id')
                 ->on('course');

@@ -23,8 +23,9 @@ class CreateAssignmentTable extends Migration {
     {
         Schema::create('assignment', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('code', 15);
             $table->unsignedInteger('unit_id');
+            $table->unsignedInteger('number');
+            $table->string('name', 60);
             $table->text('brief')->nullable();
             $table->string('status', 20);
             $table->dateTime('available_date');
@@ -32,6 +33,8 @@ class CreateAssignmentTable extends Migration {
             $table->dateTime('marking_start_date');
             $table->dateTime('marking_deadline');
             $table->timestamps();
+
+            $table->unique(array('unit_id', 'number'));
 
             $table->foreign('unit_id')
                 ->references('id')

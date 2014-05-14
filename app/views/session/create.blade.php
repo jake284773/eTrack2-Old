@@ -23,12 +23,12 @@
             @endif
 
             <div class="form-group">
-                {{ Form::label('user_id', 'User ID:') }}
+                {{ Form::label('user_id', 'User ID') }}
                 {{ Form::text('user_id', null, array('class' => 'form-control', 'autofocus')) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('password', 'Password:') }}
+                {{ Form::label('password', 'Password') }}
                 {{ Form::password('password', array('class' => 'form-control')) }}
             </div>
 

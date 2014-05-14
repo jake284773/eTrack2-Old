@@ -39,7 +39,7 @@ class AddQualificationToCourseTable extends Migration {
     {
         Schema::table('course', function ($table)
         {
-            $table->dropForeign('qualification_id');
+            $table->dropForeign('course_qualification_id_foreign');
         });
     }
 }

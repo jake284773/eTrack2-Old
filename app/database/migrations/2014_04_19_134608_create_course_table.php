@@ -36,6 +36,8 @@ class CreateCourseTable extends Migration {
             $table->unsignedInteger('course_organiser_user_id');
             $table->timestamps();
 
+            $table->unique(array('code', 'start_date', 'end_date'));
+
             $table->foreign('subject_sector_id')
                 ->references('id')
                 ->on('subject_sector');

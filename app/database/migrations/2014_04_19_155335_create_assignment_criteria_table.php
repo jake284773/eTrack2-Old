@@ -25,8 +25,9 @@ class CreateAssignmentCriteriaTable extends Migration {
             $table->increments('id');
             $table->unsignedInteger('assignment_id');
             $table->unsignedInteger('criteria_id');
-            $table->unsignedInteger('criteria_unit_id');
             $table->timestamps();
+
+            $table->unique(array('assignment_id', 'criteria_id'));
 
             $table->foreign('assignment_id')
                 ->references('id')
@@ -34,9 +35,6 @@ class CreateAssignmentCriteriaTable extends Migration {
             $table->foreign('criteria_id')
                 ->references('id')
                 ->on('criteria');
-            $table->foreign('criteria_unit_id', 'assignment_criteria_unit_id_foreign')
-                ->references('id')
-                ->on('unit');
         });
     }
 

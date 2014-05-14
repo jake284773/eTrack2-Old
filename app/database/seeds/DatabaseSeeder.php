@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder {
         $this->call('QualificationTableSeeder');
         $this->call('QualificationGradeTableSeeder');
         $this->call('UnitTableSeeder');
-        $this->call('CriteriaTableSeeder');
+//        $this->call('CriteriaTableSeeder');
     }
 
 }

@@ -27,6 +27,8 @@ class CreateCourseUnitTable extends Migration {
             $table->unsignedInteger('unit_id');
             $table->timestamps();
 
+            $table->unique(array('course_id', 'unit_id'));
+
             $table->foreign('course_id')
                 ->references('id')
                 ->on('course');

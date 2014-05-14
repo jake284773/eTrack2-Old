@@ -25,7 +25,7 @@
         </select>
     </div>
     <div class="col-md-4 pull-right">
-        <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Create a new faculty</a>
+        <a href="{{ route('faculty.create') }}" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Create a new faculty</a>
     </div>
 </div>
 <div class="row">

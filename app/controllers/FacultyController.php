@@ -3,6 +3,7 @@
 namespace eTrack\Controllers;
 
 use eTrack\Models\Faculty;
+use eTrack\Services\Validation\FacultyValidator;
 use Response;
 use Redirect;
 use View;
@@ -12,12 +13,14 @@ use App;
 
 class FacultyController extends BaseController {
 
-    private $defaultFields = array('code', 'name');
+    private $facultyValidator;
 
-    public function __construct()
+    public function __construct(FacultyValidator $facultyValidator)
     {
         $this->beforeFilter('auth');
         $this->beforeFilter('admin');
+
+        $this->facultyValidator = $facultyValidator;
     }
 
     /**
@@ -40,7 +43,7 @@ class FacultyController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('faculty.create', array('pageTitle' => 'Create a new faculty'));
 	}
 
 
@@ -51,7 +54,24 @@ class FacultyController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = array(
+            'faculty_code' => Input::get('faculty_code'),
+            'faculty_name' => Input::get('faculty_name')
+        );
+
+        if (! $this->facultyValidator->isValid($input))
+        {
+            return Redirect::back()
+                ->withErrors($this->facultyValidator->errors());
+        }
+
+        $faculty = new Faculty();
+        $faculty->code = Input::get('faculty_code');
+        $faculty->name = Input::get('faculty_name');
+        $faculty->save();
+
+        return Redirect::route('faculty.index')
+            ->with('info', 'Successfully created new faculty');
 	}
 
 
@@ -63,9 +83,7 @@ class FacultyController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return Response::json(Faculty::select($this->defaultFields)
-                ->where('code', '=', $id)->firstOrFail()
-        );
+        //
 	}
 
 

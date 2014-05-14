@@ -23,7 +23,7 @@ class CreateUnitTable extends Migration {
     {
         Schema::create('unit', function(Blueprint $table) {
             $table->increments('id');
-            $table->string("code", 12);
+            $table->string("code", 12)->unique();
             $table->string("name", 100);
             $table->integer("credit_value");
             $table->integer("glh");

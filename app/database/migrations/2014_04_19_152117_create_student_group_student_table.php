@@ -28,6 +28,8 @@ class CreateStudentGroupStudentTable extends Migration {
             $table->unsignedInteger('student_user_id');
             $table->timestamps();
 
+            $table->unique(array('student_group_id', 'student_user_id'));
+
             $table->foreign('student_group_id')
                 ->references('id')
                 ->on('student_group');

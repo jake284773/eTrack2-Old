@@ -24,11 +24,16 @@ class CreateUnitQualificationSuiteTable extends Migration {
         Schema::create('unit_qualification_suite', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('unit_id', 12);
-            $table->integer('number');
+            $table->unsignedInteger('unit_id');
             $table->unsignedInteger('qualification_suite_id');
             $table->unsignedInteger('subject_sector_id');
 
+            $table->unique(array('unit_id', 'qualification_suite_id',
+                    'subject_sector_id'), 'unit_qualification_unique');
+
+            $table->foreign('unit_id')
+                ->references('id')
+                ->on('unit');
             $table->foreign('qualification_suite_id')
                 ->references('id')
                 ->on('qualification_suite');

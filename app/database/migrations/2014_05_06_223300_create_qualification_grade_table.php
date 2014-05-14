@@ -31,6 +31,8 @@ class CreateQualificationGradeTable extends Migration {
             $table->integer('credit_value_end')->nullable();
             $table->timestamps();
 
+            $table->unique(array('qualification_id', 'grade'));
+
             $table->foreign('qualification_id')
                 ->references('id')
                 ->on('qualification');

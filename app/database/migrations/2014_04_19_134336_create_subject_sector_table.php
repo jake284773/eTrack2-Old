@@ -24,7 +24,7 @@ class CreateSubjectSectorTable extends Migration {
         Schema::create('subject_sector', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->decimal('code', 3, 1);
+            $table->decimal('code', 3, 1)->unique();
             $table->string('name', 100);
             $table->timestamps();
         });
